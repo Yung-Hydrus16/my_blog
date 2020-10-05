@@ -1,0 +1,26 @@
+ul li .brand-logo {
+    font-family: The Baghotta Script;
+    font-size: 3rem;
+}
+
+ul li .brand-logo:hover {
+    background: transparent;
+}
+
+div .message {
+    width: 100%;
+    background: rgba(79, 167, 79, 0.534);
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-bottom: 1rem;
+}
+
+.sidebar h4 {
+    color: #039BE5;
+    font-weight: 500;
+}
+
+.sidebar ul li {
+    border: 1px solid rgba(160, 160, 160, 0.2);
+    padding: .7rem;
+}

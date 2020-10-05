@@ -1,0 +1,27 @@
+{% extends "blog/base.html" %} {% block content %}
+<div class="card" style="padding: 1rem;">
+    <div class="row">
+        <div class="container col l5" style="margin-top: 2%;">
+            <img class='circle container' src="{{ user.profile.image.url }}">
+        </div>
+        <div class="container col l6">
+            <h4>{{ user.username }}</h4>
+            <p>{{ user.email }}</p>
+        </div>
+    </div>
+
+    <form method="POST" enctype="multipart/form-data" style="margin-top: -2rem;">
+        {% csrf_token %}
+        <fieldset style="border-radius: 1rem 0; border: 1px solid #FF5722;">
+            <legend>
+                <h4 style="font-family: The Baghotta Script;">Profile Info</h4>
+            </legend>
+            {{ u_form.as_p }} {{ p_form.as_p }}
+        </fieldset>
+        <div class="center container" style="padding-top: 1rem;">
+            <button type="submit" class="btn deep-orange">Update</button>
+        </div>
+    </form>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href='{% static "blog/materialize.min.css" %}'>
+    <link rel="stylesheet" href='{% static "blog/style.css" %}'> {% if title %}
+    <title>Manner - {{ title }} </title>
+    {% else %}
+    <title>Manner</title>
+    {% endif %}
+</head>
+
+<body>
+    <nav class='nav-content deep-orange'>
+        <ul style="margin: 0 auto; width: 85%;">
+            <li><a href="{% url 'blog-home' %}" class="brand-logo flow-text center">Manner</a></li>
+
+            <li style="padding-left: 1rem;"><a href="{% url 'blog-home' %}">Home</a></li>
+            <li><a href="{% url 'blog-about' %}">About</a></li>
+        </ul>
+
+        {% if user.is_authenticated %}
+        <ul class='right' style="padding-right: .5rem;">
+            <li><a href="{% url 'post-create' %}">Create Post</a></li>
+            <li><a href="{% url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'logout' %}">Logout</a></li>
+
+        </ul>
+        {% else %}
+        <ul class='right' style="padding-right: .5rem;">
+            <li><a href="{% url 'register' %}">Register</a></li>
+            <li><a href="{% url 'login' %}">Login</a></li>
+
+        </ul>
+        {% endif %}
+
+    </nav>
+    <section>
+        <div class='row' style="margin-top: 1%;">
+            <div class='col  offset-l1 l5'>
+                {% if messages %} {% for message in messages %}
+                <div class="container message">
+                    <p>{{ message }}</p>
+                </div>
+                {% endfor %} {% endif %} {% block content %} {% endblock content %}
+            </div>
+            <div class="sidebar col l3 z-depth-1 offset-l2 container" style="margin-top: .5rem;">
+                <h4 class="center" style="color: #039BE5; font-weight: 500;">Our Sidebar</h4>
+                <ul style="padding: 1rem;" class='center-align'>
+                    <li>Home</li>
+                    <li>Announcements</li>
+                    <li>About</li>
+                    <li>News</li>
+                    <li>Update</li>
+                </ul>
+            </div>
+
+        </div>
+    </section>
+</body>
+
+</html>

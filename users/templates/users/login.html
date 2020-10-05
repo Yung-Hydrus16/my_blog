@@ -1,0 +1,18 @@
+{% extends "blog/base.html" %} {% block content %}
+<form method="POST" style="margin-top: -2rem;">
+    {% csrf_token %}
+    <fieldset style="border-radius: 1rem 0; border: 1px solid #FF5722;">
+        <legend>
+            <h4 style="font-family: The Baghotta Script;">Login Now</h4>
+        </legend>
+        {{ form.as_p }}
+    </fieldset>
+    <div class="center container" style="padding-top: 1rem;">
+        <button type="submit" class="btn deep-orange">Log In</button>
+        <small><a href="{% url 'password_reset' %}">Forgot password?</a></small>
+    </div>
+</form>
+<div class="center container" style="padding-top: .5rem;">
+    <small>Need an account <a href="{% url 'register' %}" class="deep-orange-text">Sign Up Here</a></small>
+</div>
+{% endblock content %}

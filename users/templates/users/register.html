@@ -1,0 +1,17 @@
+{% extends "blog/base.html" %} {% block content %}
+<form method="POST" style="margin-top: -2rem;">
+    {% csrf_token %}
+    <fieldset style="border-radius: 1rem 0; border: 1px solid #FF5722;">
+        <legend>
+            <h4 style="font-family: The Baghotta Script;">Join Us Today</h4>
+        </legend>
+        {{ form.as_p }}
+    </fieldset>
+    <div class="center container" style="padding-top: 1rem;">
+        <button type="submit" class="btn deep-orange">Sign Up</button>
+    </div>
+</form>
+<div class="center container" style="padding-top: .5rem;">
+    <small>Already have an account <a href="{% url 'login' %}" class="deep-orange-text">Sign In Instead</a></small>
+</div>
+{% endblock content %}
